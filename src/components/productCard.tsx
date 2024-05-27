@@ -26,18 +26,20 @@ const ProductCard = ({
     <Card>
       <CardContent className="p-2 mb-2">
         <div className="relative">
-          <Image
-            alt="Logo da empresa"
-            className="rounded-md hover:cursor-pointer"
-            src={imagePath}
-            width={300}
-            height={200}
-            quality={100}
-          />
-          <div className="pl-2">
+          <div className="flex justify-center">
+            <Image
+              alt="Logo da empresa"
+              className="rounded-md hover:cursor-pointer"
+              src={imagePath}
+              width={250}
+              height={200}
+              quality={100}
+            />
+          </div>
+          {/* <div className="pl-2">
             <Badge className="absolute top-2 bg-orange-400">Novo</Badge>
             <Badge className="absolute top-2 left-16">Produto</Badge>
-          </div>
+          </div> */}
         </div>
       </CardContent>
       <CardFooter className="flex-col">

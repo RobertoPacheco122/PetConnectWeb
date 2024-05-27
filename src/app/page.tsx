@@ -1,5 +1,3 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import ProductCard from "@/components/productCard";
 import ServiceCard from "@/components/serviceCard";
 import { Button } from "@/components/ui/button";
@@ -14,7 +12,6 @@ import Image from "next/image";
 const Home = () => {
   return (
     <div>
-      <Header />
       <main>
         <section className="bg-secondaryGray">
           <div className="px-96 py-24 grid grid-cols-2 items-center">
@@ -466,7 +463,6 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 };
