@@ -25,7 +25,7 @@ const ServiceCard = ({
   return (
     <Card>
       <CardContent className="p-2 mb-2">
-        <div className="relative border-2 rounded-sm">
+        <div className="relative border-2 rounded-sm flex justify-center">
           <Image
             alt="Logo da empresa"
             className="rounded-md hover:cursor-pointer"
@@ -34,10 +34,6 @@ const ServiceCard = ({
             height={200}
             quality={100}
           />
-          <div className="pl-2">
-            <Badge className="absolute top-2 bg-orange-400">Novo</Badge>
-            <Badge className="absolute top-2 left-16">Serviço</Badge>
-          </div>
         </div>
       </CardContent>
       <CardFooter className="flex-col">
