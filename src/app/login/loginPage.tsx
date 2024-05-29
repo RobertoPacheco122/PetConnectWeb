@@ -1,40 +1,40 @@
-import React from "react";
-import Image from "next/image";
-import ProductCard from "@/components/productCard";
-import ServiceCard from "@/components/serviceCard";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import React from "react";
 
 const LoginPage = () => {
   return (
-    <section className="grid">
-
-      <div></div>
-
-      <div>
-        <h1>SIGN IN</h1>
-        <Image
-          alt="Logo da empresa"
-          src="/logo.png"
-          width={140}
-          height={140}
-        />
-
-        <form action="./">
-          <input type="email" placeholder="Email" name="email" />
-          <input type="password" placeholder="Senha" name="password" />
-          <Button className="bg-buttonPrimaryColor uppercase w-48">LOGIN</Button>
-        </form>
-        <p>DON'T HAVE AN ACCOUNT ? <a href="./" className="hover:text-orange-400"> SIGN UP.</a></p>
+    <main className="grid h-screen">
+      <div className="grid grid-cols-2">
+        <section className="bg-gray-600 p-8">
+          <Image
+            alt="Logo da empresa"
+            src="/logo.png"
+            width={140}
+            height={140}
+          />
+        </section>
+        <section className="py-8 px-[30%]">
+          <div className="flex items-center justify-center h-full flex-col">
+            <h1 className="font-titles font-semibold text-3xl mb-2">
+              Crie uma conta
+            </h1>
+            <span className="block mb-4">
+              Digite seu e-amail e senha abaixo para criar sua conta
+            </span>
+            <Input
+              className="mb-2"
+              type="text"
+              placeholder="email@exemplo.com.br"
+            />
+            <Input className="mb-2" type="password" placeholder="Sua senha" />
+            <Button></Button>
+          </div>
+        </section>
       </div>
-
-    </section>
-  )
-}
+    </main>
+  );
+};
 
 export default LoginPage;
