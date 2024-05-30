@@ -1,7 +1,11 @@
+"use client";
+
+import React from "react";
+
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 const LoginPage = () => {
   return (
@@ -17,19 +21,29 @@ const LoginPage = () => {
         </section>
         <section className="py-8 px-[30%]">
           <div className="flex items-center justify-center h-full flex-col">
-            <h1 className="font-titles font-semibold text-3xl mb-2">
-              Crie uma conta
-            </h1>
+            <h1 className="font-semibold text-2xl mb-1">Entre em sua conta</h1>
             <span className="block mb-4">
-              Digite seu e-amail e senha abaixo para criar sua conta
+              Informe seu e-mail e senha abaixo
             </span>
             <Input
+              type="email"
+              id="email"
+              placeholder="Seuemail@exemplo.com.br"
               className="mb-2"
-              type="text"
-              placeholder="email@exemplo.com.br"
             />
-            <Input className="mb-2" type="password" placeholder="Sua senha" />
-            <Button></Button>
+            <Input
+              type="password"
+              id="password"
+              placeholder="Sua senha"
+              className="mb-2"
+            />
+            <Button className="w-full mb-4">Entrar</Button>
+            <span className="text-center">
+              Ainda não possui uma conta?{" "}
+              <Link href="/createAccount" className="underline">
+                Cadastre-se
+              </Link>
+            </span>
           </div>
         </section>
       </div>
