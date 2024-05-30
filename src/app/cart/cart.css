@@ -1,23 +1,23 @@
 .cart-bg {
-  background-color: #ffc89b;
+  background-color: #ffecdd;
 }
 
 .cart {
-  padding: 40px 30px;
+  padding: 40px 100px;
   display: grid;
   grid-template-columns: 4fr 1fr;
   gap: 20px;
 }
 
 .cart-list,
-.cart-subtotal {
+.cart-subtotal>div {
   background-color: white;
+  border-radius: 5px;
 }
 
 .cart-list {
   padding: 20px;
 }
-
 
 .cart-list li {
   padding: 20px;
@@ -66,6 +66,18 @@
 
 .cart-subtotal h1 {
   font-size: 24px;
+}
+
+.cart-subtotal div {
+  display: grid;
+}
+
+.cart-subtotal button {
+  justify-self: right;
+}
+
+.cart-subtotal>div {
+  padding: 20px;
 }
 
 .total {

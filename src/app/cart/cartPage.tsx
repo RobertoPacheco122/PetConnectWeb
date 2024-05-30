@@ -127,8 +127,10 @@ const CartPage = () => {
       </div>
       {/* Subtotal */}
       <div className="cart-subtotal">
-        <h1>Subtotal(2 produtos): <span className="total">R$104,97</span></h1>
-        <button>Fechar pedido</button>
+        <div>
+          <h1>Subtotal(2 produtos): <span className="total">R$104,97</span></h1>
+          <button>Fechar pedido</button>
+        </div>
       </div>
     </div>
   );
