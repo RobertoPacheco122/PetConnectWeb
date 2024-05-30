@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 import { FaStar } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { LuShoppingCart } from "react-icons/lu";
 
 interface IProductCardProps {
   name: string;
@@ -42,7 +43,7 @@ const ProductCard = ({
           </div> */}
         </div>
       </CardContent>
-      <CardFooter className="flex-col">
+      <CardFooter className="flex-col p-2">
         <p className="uppercase text-xs text-orange-400 font-semibold">
           {category}
         </p>
@@ -58,7 +59,7 @@ const ProductCard = ({
         </div>
         <p className="font-semibold mb-4">R${price}</p>
         <Button className="bg-buttonPrimaryColor uppercase w-full">
-          Adicionar ao carrinho
+          Adicionar <LuShoppingCart size={25} />
         </Button>
       </CardFooter>
     </Card>
