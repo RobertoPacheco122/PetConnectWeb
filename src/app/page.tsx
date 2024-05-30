@@ -19,18 +19,16 @@ const Home = () => {
         <section className="bg-secondaryGray">
           <div className="px-96 py-24 grid grid-cols-2 items-center">
             <div>
-              <p className="text-orange-400 font-titles uppercase mb-2 text-xl">
+              <p className="uppercase mb-2 text-xl">
                 35% de desconto em serviços para cachorros
               </p>
-              <p className="font-bold text-4xl font-titles uppercase mb-2">
+              <p className="font-semibold text-4xl uppercase mb-2">
                 Por tempo limitado
               </p>
               <p className="mb-4">
                 Veja as ofertas e encontre o melhor serviço pelo melhor preço.
               </p>
-              <Button className="bg-buttonPrimaryColor uppercase w-48">
-                Ver mais
-              </Button>
+              <Button className="uppercase w-48">Ver mais</Button>
             </div>
             <div className="flex justify-end">
               <Image
@@ -51,7 +49,7 @@ const Home = () => {
                     return (
                       <li key={index}>
                         <a href="#">
-                          <Card className="font-titles">
+                          <Card className="">
                             <CardHeader></CardHeader>
                             <CardContent className="flex justify-center items-center">
                               <Image
@@ -89,10 +87,10 @@ const Home = () => {
                     />
                   </div>
                   <div>
-                    <p className="font-titles text-xl font-semibold">
+                    <p className="text-xl font-semibold">
                       Sobre os prestadores de serviço
                     </p>
-                    <p className="text-orange-400 italic font-semibold mb-4">
+                    <p className="text-orange-400 font-semibold mb-4">
                       Todos são certificados
                     </p>
                     <p className="text-sm">
@@ -117,10 +115,10 @@ const Home = () => {
                     />
                   </div>
                   <div>
-                    <p className="font-titles text-xl font-semibold">
+                    <p className="text-xl font-semibold">
                       Sobre os prestadores de serviço
                     </p>
-                    <p className="text-orange-400 italic font-semibold mb-4">
+                    <p className="text-orange-400 font-semibold mb-4">
                       Todos são certificados
                     </p>
                     <p className="text-sm">
@@ -138,7 +136,7 @@ const Home = () => {
         <section>
           <div className="px-96 pb-24">
             <div className="mb-8">
-              <h1 className="font-bold font-titles text-4xl text-center mb-4">
+              <h1 className="font-bold text-3xl text-center mb-4">
                 Mais popular
               </h1>
               <p className="text-center px-80">
@@ -146,36 +144,21 @@ const Home = () => {
                 sucesso entre os donos de pets e podem interessar você.
               </p>
             </div>
-            <div className="grid grid-cols-4 gap-8">
-              <ProductCard
-                name="Carne Seca"
-                category="Carne"
-                imagePath="/product1.jpg"
-                price="28,99"
-                rating={3}
-              />
-              <ProductCard
-                name="Cordeiro Seco"
-                category="Comida"
-                imagePath="/product2.jpg"
-                price="12,39"
-                rating={3}
-              />
-              <ProductCard
-                name="Carne Seca"
-                category="Carne"
-                imagePath="/product3.jpg"
-                price="55,99"
-                rating={3}
-              />
-              <ProductCard
-                name="Biscoitos de recompensa"
-                category="Carne"
-                imagePath="/product4.jpg"
-                price="32,99"
-                rating={3}
-              />
-            </div>
+            <ul className="grid grid-cols-4 gap-8">
+              {Array.from({ length: 4 }).map((service, index) => {
+                return (
+                  <li key={index}>
+                    <ServiceCard
+                      name="Banho e tosa"
+                      category="Cachorro"
+                      imagePath="/service2.svg"
+                      price="32,99"
+                      rating={3}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </section>
         <section className="bg-secondaryGray">
@@ -200,16 +183,14 @@ const Home = () => {
                     quality={100}
                   />
                 </div>
-                <p className="font-titles text-3xl font-semibold text-center">
+                <p className="text-3xl font-semibold text-center">
                   Cuidar de seu pet ficou fácil.
                 </p>
                 <p className="mb-4">
                   Agora você pode contratar serviços e comprar produtos para seu
                   pet em um só local.
                 </p>
-                <Button className="bg-buttonPrimaryColor uppercase w-48">
-                  Ver mais
-                </Button>
+                <Button className="uppercase w-48">Ver mais</Button>
               </div>
             </div>
           </div>
@@ -217,7 +198,7 @@ const Home = () => {
         <section>
           <div className="px-96 pb-24">
             <div className="mb-8">
-              <h1 className="font-bold font-titles text-4xl text-center mb-4">
+              <h1 className="font-semibold text-3xl text-center mb-4">
                 Serviços em destaque
               </h1>
               <p className="text-center px-80">
@@ -240,7 +221,7 @@ const Home = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <p className="font-titles font-semibold hover:cursor-pointer hover:text-orange-400">
+                  <p className="font-semibold hover:cursor-pointer hover:text-orange-400">
                     Cachorros
                   </p>
                 </CardFooter>
@@ -259,7 +240,7 @@ const Home = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <p className="font-titles font-semibold hover:cursor-pointer hover:text-orange-400">
+                  <p className="font-semibold hover:cursor-pointer hover:text-orange-400">
                     Gatos
                   </p>
                 </CardFooter>
@@ -278,7 +259,7 @@ const Home = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <p className="font-titles font-semibold hover:cursor-pointer hover:text-orange-400">
+                  <p className="font-semibold hover:cursor-pointer hover:text-orange-400">
                     Peixes
                   </p>
                 </CardFooter>
@@ -297,7 +278,7 @@ const Home = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <p className="font-titles font-semibold hover:cursor-pointer hover:text-orange-400">
+                  <p className="font-semibold hover:cursor-pointer hover:text-orange-400">
                     Roedores
                   </p>
                 </CardFooter>
@@ -316,7 +297,7 @@ const Home = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <p className="font-titles font-semibold hover:cursor-pointer hover:text-orange-400">
+                  <p className="font-semibold hover:cursor-pointer hover:text-orange-400">
                     Aves
                   </p>
                 </CardFooter>

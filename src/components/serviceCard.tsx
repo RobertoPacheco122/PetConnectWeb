@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 import { FaStar } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import { LuShoppingCart } from "react-icons/lu";
 
 interface IServiceCardProps {
   name: string;
@@ -43,17 +44,22 @@ const ServiceCard = ({
         <p className="font-bold mb-1 text-center hover:cursor-pointer hover:text-orange-400">
           {name}
         </p>
-        <p className="mb-1">Local: Rio de Janeiro - RJ</p>
-        <div className="flex gap-1 mb-2">
-          <FaStar className="text-orange-400" size={20} />
-          <FaStar className="text-orange-400" size={20} />
-          <FaStar className="text-orange-400" size={20} />
-          <FaStar className="text-orange-400" size={20} />
-          <FaStar className="text-orange-400" size={20} />
+        <p className="mb-1 text-xs">Local: Bonsucesso - RJ</p>
+        <p className="mb-1 text-xs">Por: Roberto Pacheco</p>
+        <div className="flex gap-2 items-center mb-2 text-sm">
+          <div className="flex gap-1">
+            <FaStar className="text-orange-400" size={20} />
+            <FaStar className="text-orange-400" size={20} />
+            <FaStar className="text-orange-400" size={20} />
+            <FaStar className="text-orange-400" size={20} />
+            <FaStar className="text-orange-400" size={20} />
+          </div>
+          <span className="block">(783)</span>
         </div>
         <p className="font-semibold mb-4">Preço base: R${price}</p>
-        <Button className="bg-blue-300 uppercase w-full">
-          Adicionar ao carrinho
+        <Button className="uppercase w-full">
+          <span className="mr-2">Adicionar</span>
+          <LuShoppingCart size={25} />
         </Button>
       </CardFooter>
     </Card>

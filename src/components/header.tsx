@@ -6,7 +6,7 @@ import { LuShoppingCart, LuUser2 } from "react-icons/lu";
 const Header = () => {
   return (
     <header>
-      <div className="px-96 py-8 font-titles">
+      <div className="px-96 py-8">
         <div className="flex justify-between items-center">
           <div>
             <Image
@@ -18,7 +18,7 @@ const Header = () => {
           </div>
           <div className="flex gap-8">
             <nav>
-              <ul className="flex gap-4 uppercase font-semibold">
+              <ul className="flex gap-4 uppercase font-semibold text-xm">
                 <li>
                   <a href="#" className="hover:text-orange-400">
                     Início

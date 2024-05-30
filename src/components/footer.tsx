@@ -10,18 +10,16 @@ const Footer = () => {
         <div>
           <div className="flex gap-2">
             <IoPawSharp className="text-orange-400" size={20} />
-            <p className="font-titles font-semibold uppercase">
-              Sobre a PetConnect
-            </p>
+            <p className="font-semibold uppercase">Sobre a PetConnect</p>
           </div>
           <p>
-            We are a one-stop shop for pet owners and animal lovers. You’ll find
-            high-quality pet supplies here. Take some time to look at our
+            We are a one-stop shop for pet owners and animal lovers. You&apos;ll
+            find high-quality pet supplies here. Take some time to look at our
             collection of pet products and accessories.
           </p>
         </div>
         <div>
-          <p className="font-titles font-semibold uppercase">Links utéis</p>
+          <p className="font-semibold uppercase">Links utéis</p>
           <nav>
             <ul>
               <li className="mb-2">
@@ -73,7 +71,7 @@ const Footer = () => {
           </nav>
         </div>
         <div>
-          <p className="font-titles font-semibold uppercase">Minha conta</p>
+          <p className="font-semibold uppercase">Minha conta</p>
           <nav>
             <ul>
               <li className="mb-2">
