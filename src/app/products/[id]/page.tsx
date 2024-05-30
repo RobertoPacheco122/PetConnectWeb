@@ -1,7 +1,14 @@
 import React from "react";
+import ProductPage from "./productPage";
 
-const Page = () => {
-  return <div>Page</div>;
+interface ProductsPageParams {
+  params: {
+    id: string;
+  };
+}
+
+const Page = ({ params }: ProductsPageParams) => {
+  return <ProductPage id={params.id} />;
 };
 
 export default Page;
