@@ -1,3 +1,5 @@
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import ProductCard from "@/components/productCard";
 import ServiceCard from "@/components/serviceCard";
 import { Button } from "@/components/ui/button";
@@ -11,7 +13,8 @@ import Image from "next/image";
 
 const Home = () => {
   return (
-    <div>
+    <>
+      <Header />
       <main>
         <section className="bg-secondaryGray">
           <div className="px-96 py-24 grid grid-cols-2 items-center">
@@ -44,132 +47,31 @@ const Home = () => {
             <div className="mb-8">
               <nav>
                 <ul className="grid grid-cols-6 gap-8">
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/dog-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Cachorro
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/cat-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Gato
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/fish-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Peixe
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/bird-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Aves
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/reptile-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Répteis
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Card className="font-titles">
-                        <CardHeader></CardHeader>
-                        <CardContent className="flex justify-center items-center">
-                          <Image
-                            alt="Logo da empresa"
-                            src="/small-food-category.png"
-                            width={130}
-                            height={130}
-                            quality={100}
-                          />
-                        </CardContent>
-                        <CardFooter className="justify-center">
-                          <span className="font-semibold hover:text-orange-400">
-                            Comida de Roedores
-                          </span>
-                        </CardFooter>
-                      </Card>
-                    </a>
-                  </li>
+                  {Array.from({ length: 6 }).map((_, index) => {
+                    return (
+                      <li key={index}>
+                        <a href="#">
+                          <Card className="font-titles">
+                            <CardHeader></CardHeader>
+                            <CardContent className="flex justify-center items-center">
+                              <Image
+                                alt="Logo da empresa"
+                                src="/dog-food-category.png"
+                                width={130}
+                                height={130}
+                                quality={100}
+                              />
+                            </CardContent>
+                            <CardFooter className="justify-center">
+                              <span className="font-semibold hover:text-orange-400 text-center text-xs">
+                                Comida de Cachorro
+                              </span>
+                            </CardFooter>
+                          </Card>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             </div>
@@ -463,7 +365,8 @@ const Home = () => {
           </div>
         </section>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 };
 
