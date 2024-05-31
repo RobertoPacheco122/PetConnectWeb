@@ -1,11 +1,13 @@
+"use client";
+
 import React from "react";
 
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { FaStar } from "react-icons/fa";
 import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
 import { LuShoppingCart } from "react-icons/lu";
+import { toast } from "sonner";
 
 interface IServiceCardProps {
   name: string;
@@ -57,7 +59,18 @@ const ServiceCard = ({
           <span className="block">(783)</span>
         </div>
         <p className="font-semibold mb-4">Preço base: R${price}</p>
-        <Button className="uppercase w-full">
+        <Button
+          className="uppercase w-full"
+          onClick={() =>
+            toast("Adicionado ao carrinho com sucesso!", {
+              description: "Veja seu carrinho para mais detalhes.",
+              action: {
+                label: "Desfazer",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }
+        >
           <span className="mr-2">Adicionar</span>
           <LuShoppingCart size={25} />
         </Button>

@@ -1,7 +1,8 @@
 import React from "react";
 
 import Image from "next/image";
-import { LuShoppingCart, LuUser2 } from "react-icons/lu";
+import { LuUser2 } from "react-icons/lu";
+import CartSheet from "./cartSheet";
 
 const Header = () => {
   return (
@@ -48,7 +49,7 @@ const Header = () => {
             </nav>
             <div className="flex items-center gap-4">
               <LuUser2 className="hover:cursor-pointer" size={25} />
-              <LuShoppingCart className="hover:cursor-pointer" size={25} />
+              <CartSheet />
             </div>
           </div>
         </div>
