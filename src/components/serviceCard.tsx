@@ -58,7 +58,9 @@ const ServiceCard = ({
           </div>
           <span className="block">(783)</span>
         </div>
-        <p className="font-semibold mb-4">Preço base: R${price}</p>
+        <p className="font-semibold mb-4 text-sm text-center">
+          Preço base: R${price}
+        </p>
         <Button
           className="uppercase w-full"
           onClick={() =>

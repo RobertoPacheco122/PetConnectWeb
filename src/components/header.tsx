@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { LuUser2 } from "react-icons/lu";
 import CartSheet from "./cartSheet";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -21,29 +22,14 @@ const Header = () => {
             <nav>
               <ul className="flex gap-4 uppercase font-semibold text-xm">
                 <li>
-                  <a href="#" className="hover:text-orange-400">
+                  <Link href={"/"} className="hover:text-orange-400">
                     Início
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-orange-400">
-                    Sobre nós
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-orange-400">
+                  <Link href={"/services"} className="hover:text-orange-400">
                     Serviços
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-orange-400">
-                    Produtos
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-orange-400">
-                    Contato
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

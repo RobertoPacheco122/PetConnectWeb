@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { LuShoppingCart } from "react-icons/lu";
+"use client";
+
+import React from "react";
+
 import {
   Sheet,
   SheetClose,
@@ -12,6 +12,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { LuShoppingCart } from "react-icons/lu";
 import { Separator } from "./ui/separator";
 import { ScrollArea } from "./ui/scroll-area";
 
@@ -28,10 +30,9 @@ const CartSheet = () => {
             Veja um resumo dos itens em seu carrinho.
           </SheetDescription>
         </SheetHeader>
-
         <ScrollArea className="h-[89%]">
           <ul className="text-sm">
-            {Array.from({ length: 35 }).map((item, index) => {
+            {Array.from({ length: 5 }).map((item, index) => {
               return (
                 <li key={index} className="mb-4">
                   <div className="flex justify-between items-center mb-2">
