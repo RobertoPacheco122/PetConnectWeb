@@ -1,7 +1,16 @@
-import React from "react";
+"use client";
 
-const Page = () => {
-  return <div>Page</div>;
+import React from "react";
+import ServicePage from "./servicePage";
+
+interface ProductsPageParams {
+  params: {
+    id: string;
+  };
+}
+
+const Page = ({ params }: ProductsPageParams) => {
+  return <ServicePage id={params.id} />;
 };
 
 export default Page;

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import {
@@ -35,8 +37,64 @@ import {
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ServiceCard from "@/components/serviceCard";
+import { useCart } from "@/context/cartContext";
+import { fetchAllServices } from "@/utils/api/service";
+import Link from "next/link";
+
+export interface IService {
+  id: string;
+  animals: IAnimal[];
+  description: string;
+  briefDescription: string;
+  basePrice: number;
+  imagePath: string;
+  name: string;
+  serviceProvider: IServiceProvider;
+  serviceCategory: IServiceCategory;
+  evaluations: IEvaluation[];
+}
+
+export interface IAnimal {
+  name: string;
+  specieId: string;
+}
+
+export interface IEvaluation {
+  evaluate: number;
+  opinion: string;
+}
+
+interface IServiceCategory {
+  name: string;
+}
+
+export interface IServiceProvider {
+  name: string;
+  addresses: IAddress[];
+}
+
+interface IAddress {
+  address: string;
+  number: string;
+  district: string;
+}
 
 const ServicesPage = () => {
+  const [servicesData, setServicesData] = React.useState<IService[]>([]);
+  const { setItems } = useCart();
+
+  React.useEffect(() => {
+    const getAllServices = async () => {
+      const response = (await fetchAllServices()) as IService[];
+
+      console.log(response);
+
+      setServicesData(response);
+    };
+
+    getAllServices();
+  }, []);
+
   return (
     <>
       <Header />
@@ -248,19 +306,39 @@ const ServicesPage = () => {
                 </CardContent>
               </Card>
               <ul className="grid grid-cols-4 gap-6 mb-8">
-                {Array.from({ length: 50 }).map((product, index) => {
-                  return (
-                    <li key={index}>
-                      <ServiceCard
-                        name="Veterinário"
-                        category="Cachorro"
-                        imagePath="/service2.svg"
-                        price="12,39"
-                        rating={3}
-                      />
-                    </li>
-                  );
-                })}
+                {servicesData.map(
+                  (
+                    {
+                      id,
+                      name,
+                      basePrice,
+                      briefDescription,
+                      description,
+                      imagePath,
+                      animals,
+                      evaluations,
+                      serviceCategory,
+                      serviceProvider,
+                    },
+                    index
+                  ) => {
+                    return (
+                      <li key={index}>
+                        <ServiceCard
+                          id={id}
+                          name={name}
+                          provider={serviceProvider}
+                          animals={animals}
+                          evaluations={evaluations}
+                          category="Cachorro"
+                          imagePath={imagePath}
+                          basePrice={basePrice}
+                          addProductToCart={setItems}
+                        />
+                      </li>
+                    );
+                  }
+                )}
               </ul>
               <div>
                 <Pagination>

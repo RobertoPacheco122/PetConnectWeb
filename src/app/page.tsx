@@ -1,6 +1,7 @@
+"use client";
+
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import ProductCard from "@/components/productCard";
 import ServiceCard from "@/components/serviceCard";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,9 +10,13 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { useCart } from "@/context/cartContext";
 import Image from "next/image";
+import Link from "next/link";
 
 const Home = () => {
+  const { setItems } = useCart();
+
   return (
     <>
       <Header />
@@ -28,7 +33,9 @@ const Home = () => {
               <p className="mb-4">
                 Veja as ofertas e encontre o melhor serviço pelo melhor preço.
               </p>
-              <Button className="uppercase w-48">Ver mais</Button>
+              <Link href="/services">
+                <Button className="uppercase w-48">Ver mais</Button>
+              </Link>
             </div>
             <div className="flex justify-end">
               <Image
@@ -42,37 +49,6 @@ const Home = () => {
         </section>
         <section>
           <div className="px-96 py-24">
-            <div className="mb-8">
-              <nav>
-                <ul className="grid grid-cols-6 gap-8">
-                  {Array.from({ length: 6 }).map((_, index) => {
-                    return (
-                      <li key={index}>
-                        <a href="#">
-                          <Card className="">
-                            <CardHeader></CardHeader>
-                            <CardContent className="flex justify-center items-center">
-                              <Image
-                                alt="Logo da empresa"
-                                src="/dog-food-category.png"
-                                width={130}
-                                height={130}
-                                quality={100}
-                              />
-                            </CardContent>
-                            <CardFooter className="justify-center">
-                              <span className="font-semibold hover:text-orange-400 text-center text-xs">
-                                Comida de Cachorro
-                              </span>
-                            </CardFooter>
-                          </Card>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-            </div>
             <div className="grid grid-cols-2 gap-8">
               <Card>
                 <CardHeader></CardHeader>
@@ -148,13 +124,14 @@ const Home = () => {
               {Array.from({ length: 4 }).map((service, index) => {
                 return (
                   <li key={index}>
-                    <ServiceCard
+                    {/* <ServiceCard
                       name="Banho e tosa"
                       category="Cachorro"
                       imagePath="/service2.svg"
                       price="32,99"
                       rating={3}
-                    />
+                      addProductToCart={setItems}
+                    /> */}
                   </li>
                 );
               })}
@@ -190,7 +167,9 @@ const Home = () => {
                   Agora você pode contratar serviços e comprar produtos para seu
                   pet em um só local.
                 </p>
-                <Button className="uppercase w-48">Ver mais</Button>
+                <Link href="/services">
+                  <Button className="uppercase w-48">Ver mais</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -206,7 +185,7 @@ const Home = () => {
                 animais mais bem avaliados em sua região.
               </p>
             </div>
-            <div className="grid grid-cols-5 gap-8 mb-8">
+            {/* <div className="grid grid-cols-5 gap-8 mb-8">
               <Card className="border-4 border-orange-400">
                 <CardContent className="pt-6">
                   <div className="flex justify-center">
@@ -302,45 +281,51 @@ const Home = () => {
                   </p>
                 </CardFooter>
               </Card>
-            </div>
+            </div> */}
             <Card>
               <CardHeader></CardHeader>
               <CardContent>
                 <div className="grid grid-cols-4 gap-8">
-                  <ServiceCard
+                  {/* <ServiceCard
                     name="Adestramento de câes"
                     category="Cachorros"
                     imagePath="/service1.svg"
-                    price="28,99"
+                    basePrice="28,99"
                     rating={3}
+                    addProductToCart={setItems}
                   />
                   <ServiceCard
                     name="Veterinário"
                     category="Cachorro e gatos"
                     imagePath="/service2.svg"
-                    price="12,39"
+                    basePrice="12,39"
                     rating={3}
+                    addProductToCart={setItems}
                   />
                   <ServiceCard
                     name="Banho e tosa"
                     category="Cachorro"
                     imagePath="/service4.svg"
-                    price="55,99"
+                    basePrice="55,99"
                     rating={3}
+                    addProductToCart={setItems}
                   />
                   <ServiceCard
                     name="Banho e tosa"
                     category="Cachorro"
                     imagePath="/service3.svg"
-                    price="32,99"
+                    basePrice="32,99"
                     rating={3}
-                  />
+                    addProductToCart={setItems}
+                  /> */}
                 </div>
               </CardContent>
               <CardFooter className="justify-center">
-                <Button className="bg-buttonSecondaryColor text-black uppercase w-48">
-                  Ver mais
-                </Button>
+                <Link href="/services">
+                  <Button className="bg-buttonSecondaryColor text-black uppercase w-48">
+                    Ver mais
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           </div>
