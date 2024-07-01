@@ -24,6 +24,23 @@ import { LuTrash2 } from "react-icons/lu";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { useCart } from "@/context/cartContext";
+import { toast } from "sonner";
+import { postServiceRequest } from "@/utils/api/service";
+
+export interface IServiceRequest {
+  id: string;
+  requestDate: string;
+  provisionDate: string;
+  requestStatus: EServiceRequestStatus;
+  userWhoRequestedId: string;
+  serviceId: string;
+}
+
+export enum EServiceRequestStatus {
+  Pending = 1,
+  Concluded = 2,
+  Canceled = 3,
+}
 
 const CartPage = () => {
   const { items, setItems } = useCart();
@@ -32,6 +49,51 @@ const CartPage = () => {
     setItems((previousItems) => {
       return previousItems.filter((_, i) => i !== index);
     });
+  };
+
+  const handleFinalizeOrder = async () => {
+    let errorOcurred = false;
+
+    if (items.length === 0) {
+      toast.error(
+        "É necessário ter itens no carrinho para finalizar o pedido!"
+      );
+
+      return;
+    }
+
+    for (const [index, item] of items.entries()) {
+      try {
+        const postRequest = await postServiceRequest({
+          requestStatus: 1,
+          serviceId: item.id,
+          requestDate: new Date().toISOString(),
+          userWhoRequestedId: "33f22574-8959-466a-872a-88604cdca64a",
+        });
+
+        if (!postRequest)
+          throw new Error(
+            `Ocorreu um erro ao enviar o item do carrinho de ServiceId ${item.id}`
+          );
+
+        handleDeleteProductFromCart(index);
+      } catch (error) {
+        console.error(error);
+        errorOcurred = true;
+      } finally {
+        if (errorOcurred) {
+          toast.error(
+            "Ocorreu um erro ao enviar alguma solicitação de serviço. Atualize a página e tente novamente."
+          );
+
+          return;
+        }
+
+        toast.success("Pedidos realizados com sucesso!", {
+          description: "Veja seu histórico de pedidos para mais detalhes.",
+        });
+      }
+    }
   };
 
   const totalCartValue =
@@ -133,6 +195,7 @@ const CartPage = () => {
                     <Button
                       className="w-full"
                       disabled={items.length === 0 ? true : false}
+                      onClick={() => handleFinalizeOrder()}
                     >
                       Finalizar pedido
                     </Button>

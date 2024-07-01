@@ -47,7 +47,7 @@ const ServiceCard = ({
       return [...previousProducts, product];
     });
 
-    toast("Adicionado ao carrinho com sucesso!", {
+    toast.success("Adicionado ao carrinho com sucesso!", {
       description: "Veja seu carrinho para mais detalhes.",
       action: {
         label: "Desfazer",
@@ -83,7 +83,7 @@ const ServiceCard = ({
           Local: {provider.addresses[0].address}, {provider.addresses[0].number}{" "}
           - {provider.addresses[0].district}
         </p>
-        <p className="mb-1 text-xs">Por: {provider.name}</p>
+        <p className="mb-1 text-xs text-center">Por: {provider.name}</p>
         <div className="flex gap-2 items-center mb-2 text-sm">
           <div className="flex gap-1">
             {renderStarsEvaluations(evaluations)}
