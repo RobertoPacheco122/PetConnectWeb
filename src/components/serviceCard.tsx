@@ -15,6 +15,8 @@ import {
   IServiceProvider,
 } from "@/app/services/servicesPage";
 import Link from "next/link";
+import { renderStarsEvaluations } from "@/utils/service/evaluation";
+import { renderAnimalNames } from "@/utils/service/card";
 
 interface IServiceCardProps {
   basePrice: number;
@@ -54,38 +56,6 @@ const ServiceCard = ({
     });
   };
 
-  const renderStarsEvaluations = (evaluations: IEvaluation[]) => {
-    const TOTAL_NUMBER_OF_STARS = 5;
-
-    const total = evaluations.reduce(
-      (sum, evaluation) => sum + evaluation.evaluate,
-      0
-    );
-    const avarageStars = Math.round(total / evaluations.length);
-
-    return (
-      <>
-        {[...Array(TOTAL_NUMBER_OF_STARS)].map((_, index) => (
-          <FaStar
-            key={index}
-            className={
-              index < avarageStars ? "text-orange-400" : "text-gray-200"
-            }
-            size={20}
-          />
-        ))}
-      </>
-    );
-  };
-
-  const renderAnimalNames = (animals: IAnimal[]) => {
-    if (!animals || animals.length === 0) return "Não informado";
-
-    const names = animals.map((animal) => animal.name);
-
-    return names.join(", ");
-  };
-
   return (
     <Card>
       <CardContent className="p-2 mb-2">
@@ -94,7 +64,7 @@ const ServiceCard = ({
             <Image
               alt="Logo da empresa"
               className="rounded-md hover:cursor-pointer"
-              src={`/${imagePath}`}
+              src={imagePath}
               width={300}
               height={200}
               quality={100}

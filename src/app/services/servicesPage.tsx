@@ -59,9 +59,16 @@ export interface IAnimal {
   specieId: string;
 }
 
+export interface ICommonUser {
+  name: string;
+}
+
 export interface IEvaluation {
   evaluate: number;
+  title: string;
   opinion: string;
+  userWhoRequested: ICommonUser;
+  createdAt: string;
 }
 
 interface IServiceCategory {
@@ -69,6 +76,7 @@ interface IServiceCategory {
 }
 
 export interface IServiceProvider {
+  id: string;
   name: string;
   addresses: IAddress[];
 }

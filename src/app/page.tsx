@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import ServiceCard from "@/components/serviceCard";
@@ -13,9 +15,22 @@ import {
 import { useCart } from "@/context/cartContext";
 import Image from "next/image";
 import Link from "next/link";
+import { IService } from "./services/servicesPage";
+import { fetchAllServices } from "@/utils/api/service";
 
 const Home = () => {
+  const [servicesData, setServicesData] = React.useState<IService[]>([]);
   const { setItems } = useCart();
+
+  React.useEffect(() => {
+    const getAllServices = async () => {
+      const response = (await fetchAllServices()) as IService[];
+
+      setServicesData(response);
+    };
+
+    getAllServices();
+  }, []);
 
   return (
     <>
@@ -285,40 +300,41 @@ const Home = () => {
             <Card>
               <CardHeader></CardHeader>
               <CardContent>
-                <div className="grid grid-cols-4 gap-8">
-                  {/* <ServiceCard
-                    name="Adestramento de câes"
-                    category="Cachorros"
-                    imagePath="/service1.svg"
-                    basePrice="28,99"
-                    rating={3}
-                    addProductToCart={setItems}
-                  />
-                  <ServiceCard
-                    name="Veterinário"
-                    category="Cachorro e gatos"
-                    imagePath="/service2.svg"
-                    basePrice="12,39"
-                    rating={3}
-                    addProductToCart={setItems}
-                  />
-                  <ServiceCard
-                    name="Banho e tosa"
-                    category="Cachorro"
-                    imagePath="/service4.svg"
-                    basePrice="55,99"
-                    rating={3}
-                    addProductToCart={setItems}
-                  />
-                  <ServiceCard
-                    name="Banho e tosa"
-                    category="Cachorro"
-                    imagePath="/service3.svg"
-                    basePrice="32,99"
-                    rating={3}
-                    addProductToCart={setItems}
-                  /> */}
-                </div>
+                <ul className="grid grid-cols-4 gap-8">
+                  {servicesData.map(
+                    (
+                      {
+                        id,
+                        name,
+                        basePrice,
+                        briefDescription,
+                        description,
+                        imagePath,
+                        animals,
+                        evaluations,
+                        serviceCategory,
+                        serviceProvider,
+                      },
+                      index
+                    ) => {
+                      return (
+                        <li key={index}>
+                          <ServiceCard
+                            id={id}
+                            name={name}
+                            provider={serviceProvider}
+                            animals={animals}
+                            evaluations={evaluations}
+                            category="Cachorro"
+                            imagePath={imagePath}
+                            basePrice={basePrice}
+                            addProductToCart={setItems}
+                          />
+                        </li>
+                      );
+                    }
+                  )}
+                </ul>
               </CardContent>
               <CardFooter className="justify-center">
                 <Link href="/services">
